@@ -18,7 +18,7 @@ void setup() {
  DS18B20.begin();
  Serial.println();
  Serial.println("DS18B20 Application");
- 
+
 //Check if there is a sensor connected.
  if(DS18B20.getAddress(address, 0)) Serial.print("Found DS18B20 sensor with address:");
  else{
@@ -37,7 +37,7 @@ float fTemp;
  DS18B20.requestTemperatures();
  // fetch the temperature. We only have 1 sensor, so the index is 0.
  fTemp = DS18B20.getTempCByIndex(0);
- int fTempRounded = round(fTemp);
+ int fTempRounded = floor(fTemp);
  String weather;
  switch (fTempRounded) {
   case 0 ... 9:
